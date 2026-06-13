@@ -2,7 +2,7 @@
 name: book-typesetting
 description: "HTML→印刷级PDF纸质书排版。小16开(170×240mm)、CSS Paged Media、Playwright PDF生成、pypdf合拼+页码。保留原始UI设计，含动态页眉、双面装订留白、自动目录等专业印刷知识。"
 version: 3.0.0
-author: Hermes Agent (小茉)
+author: 王宇 (garoter-a11y)
 platforms: [windows]
 ---
 

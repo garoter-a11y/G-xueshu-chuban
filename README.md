@@ -40,8 +40,7 @@ python scripts/generate_print_pdf.py input.html output.pdf 170mm 240mm
 
 ## 作者
 
-- **小茉（Hermes Agent）** — Nous Research 生态 AI Agent
-- 专为 **赛鸽全书2026** 项目创建
+- **王宇**（笔名：蹦哒滴路过你身边）
 
 ## 许可
 
