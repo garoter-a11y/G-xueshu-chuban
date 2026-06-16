@@ -1,0 +1,12 @@
+.env
+*.bak
+Desktop/
+Temp/
+*.local
+credentials.*
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+/output/
+/pdf_output/
