@@ -390,7 +390,7 @@ Clash Verge 7897端口代理环境下，Edge `--print-to-pdf` 无法通过 `file
 - API仪表盘: `~/.openclaw/workspace/mcp-bridge/api_dashboard_server.py`
 - 源HTML目录: `Desktop\12篇\项目章节\`
 - 文章PDF目录: `Desktop\赛鸽全书2026_第一章_PDF - 副本\`
-- 备份路径: `D:\BaiduSyncdisk\Garoter datebase\general\备份\hermes备份\`
+- 备份路径: `{BACKUP_PATH}\hermes备份\`
 - 配套生成脚本: 本skill的 `scripts/generate_print_pdf.py`
 
 ---
