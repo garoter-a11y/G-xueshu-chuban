@@ -134,9 +134,65 @@ Title → Abstract(200-250词) → Introduction(1.5页以内)
 @media print { body { background: white !important; } }
 ```
 
-### 进阶：动态页眉、双面装订、出血位
+### 进阶1：动态页眉（章节名自动注入）
 
-详见源文件 `references/book-typesetting-advanced.md`
+```css
+/* HTML中标题内容存到变量 */
+h1 { string-set: chapter-title content(text); }
+h2 { string-set: section-title content(text); }
+
+/* 奇数页右上角=章名，偶数页左上角=节名 */
+@page :right {
+  @top-right { content: string(chapter-title); font-size: 9pt; color: #666; }
+}
+@page :left {
+  @top-left { content: string(section-title); font-size: 9pt; color: #666; }
+}
+```
+
+### 进阶2：双面打印/装订留白
+
+```css
+@page :left {   /* 偶数页——装订侧在右边 */
+  margin: 22mm 20mm 22mm 30mm;  /* 左边更大=外侧 */
+}
+@page :right {  /* 奇数页——装订侧在左边 */
+  margin: 22mm 30mm 22mm 20mm;  /* 右边更大=外侧 */
+}
+```
+
+### 进阶3：出血位+裁切标记（送打印店）
+
+```css
+@page {
+  size: 170mm 240mm;
+  bleed: 3mm;         /* 出血3mm */
+  marks: crop cross;   /* 裁切标记+十字线 */
+}
+```
+
+⚠️ Playwright的`page.pdf()`不支持`marks`和`bleed` CSS属性。两个替代方案：
+| 方案 | 做法 | 适用 |
+|------|------|------|
+| 🅰 做图时留出血 | HTML设计图本身四周多3mm内容 | 最简单 |
+| 🅱 转PDF工具 | Adobe Acrobat/打印店软件加裁切线 | 专业 |
+
+### 进阶4：自动目录页码
+
+```css
+.toc a::after {
+  content: leader('.') target-counter(attr(href), page);
+}
+```
+
+### 进阶5：防溢出（页末孤行控制）
+
+```css
+p, li { orphans: 3; widows: 3; }       /* 至少3行在一起 */
+h1, h2, h3 { break-after: avoid; }      /* 标题后不换页 */
+table, figure, pre { break-inside: avoid; }  /* 表格/代码块不断开 */
+section.chapter { break-before: page; }      /* 每章从新页开始 */
+```
 
 ## Playwright PDF生成
 
